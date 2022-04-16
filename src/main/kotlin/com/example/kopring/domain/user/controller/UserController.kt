@@ -1,13 +1,10 @@
 package com.example.kopring.domain.user.controller
 
 import com.example.kopring.domain.user.payload.request.SaveUserRequest
+import com.example.kopring.domain.user.payload.response.UserInfoResponse
 import com.example.kopring.domain.user.service.UserService
 import org.springframework.http.HttpStatus
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.ResponseStatus
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 
 @RequestMapping("/user")
 @RestController
@@ -19,6 +16,11 @@ class UserController(
     @ResponseStatus(HttpStatus.CREATED)
     fun saveUser(@RequestBody request: SaveUserRequest) {
         userService.save(request)
+    }
+
+    @GetMapping("/{user-id}")
+    fun getUserInfo(@PathVariable("user-id") userId: Long): UserInfoResponse {
+        return userService.getUserInfo(userId)
     }
 
 }
