@@ -1,11 +1,10 @@
 package com.example.kopring.domain.post.entity
 
-import com.example.kopring.domain.post.payload.request.PostRequest
 import com.example.kopring.domain.user.entity.User
 import javax.persistence.*
 
 @Entity
-open class Post(
+class Post(
         title: String,
         content: String,
 

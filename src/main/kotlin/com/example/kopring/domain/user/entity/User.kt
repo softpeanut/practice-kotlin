@@ -6,7 +6,7 @@ import javax.persistence.GenerationType
 import javax.persistence.Id
 
 @Entity
-open class User(
+class User(
         name: String,
         email: String,
         age: Int
