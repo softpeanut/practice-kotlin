@@ -1,0 +1,18 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database: mysql
+    open-in-view: false
+  datasource:
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:password}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${DB_URL:localhost}:3306/${DB_NAME:test}?useSSL=false&characterEncoding=UTF-8&serverTimezone=Asia/Seoul&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+
+server:
+  port: 8080
+  shutdown: graceful
+
