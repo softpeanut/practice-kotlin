@@ -25,7 +25,7 @@ class UserService(
     }
 
     fun getUserInfo(userId: Long): UserInfoResponse {
-        val user = userFacade.findById(userId)
+        val user = userFacade.getById(userId)
 
         return UserInfoResponse(
                 user.id,
