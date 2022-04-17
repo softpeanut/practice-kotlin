@@ -29,4 +29,9 @@ class PostController(
         return postService.updateById(postId, request)
     }
 
+    @DeleteMapping("/{post-id}")
+    fun deletePost(@PathVariable("post-id") postId: Long): PostResponse {
+        return postService.deleteById(postId)
+    }
+
 }

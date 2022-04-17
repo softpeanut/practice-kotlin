@@ -58,4 +58,18 @@ class PostService(
         )
     }
 
+    fun deleteById(id: Long): PostResponse {
+        val post: Post = postFacade.getById(id)
+
+        postRepository.delete(post)
+
+        return PostResponse(
+                id = post.id,
+                title = post.title,
+                content = post.content,
+                writerName = post.user.name,
+                writerAge = post.user.age
+        )
+    }
+
 }
