@@ -16,7 +16,7 @@ class PostController(
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    fun savePost(request: PostRequest): Post {
+    fun savePost(@RequestBody request: PostRequest): Post {
         return postService.save(request)
     }
 
