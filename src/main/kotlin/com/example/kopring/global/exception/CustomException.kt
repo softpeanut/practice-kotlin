@@ -1,12 +1,12 @@
 package com.example.kopring.global.exception
 
-import com.example.kopring.global.exception.error.ErrorCode
+import com.example.kopring.global.exception.error.ErrorResponse
 
-open class CustomException(private val errorCode: ErrorCode) : RuntimeException() {
+open class CustomException(private val error: ErrorResponse) : RuntimeException() {
 
     val status: Int
-        get() = errorCode.status
+        get() = error.status
 
     override val message: String
-        get() = errorCode.message
+        get() = error.message
 }
