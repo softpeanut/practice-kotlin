@@ -2,6 +2,7 @@ package com.example.kopring.global.security.filter
 
 import com.example.kopring.global.exception.filter.ExceptionFilter
 import com.example.kopring.global.security.jwt.JwtTokenProvider
+import com.example.kopring.global.web.WebMvcFilter
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.springframework.security.config.annotation.SecurityConfigurerAdapter
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
@@ -16,8 +17,10 @@ class FilterConfig(
     override fun configure(builder: HttpSecurity) {
         val tokenFilter = TokenFilter(jwtTokenProvider)
         val exceptionFilter = ExceptionFilter(objectMapper)
+        val webMvcFilter = WebMvcFilter()
 
         builder.addFilterBefore(tokenFilter, UsernamePasswordAuthenticationFilter::class.java)
         builder.addFilterBefore(exceptionFilter, TokenFilter::class.java)
+        builder.addFilterBefore(webMvcFilter, ExceptionFilter::class.java)
     }
 }
