@@ -16,3 +16,8 @@ server:
   port: 8080
   shutdown: graceful
 
+jwt:
+  secretKey: ${SECRET:sfadsfadsfadsf}
+  accessTokenExp: ${ACCESS_EXP:1800}
+
+
