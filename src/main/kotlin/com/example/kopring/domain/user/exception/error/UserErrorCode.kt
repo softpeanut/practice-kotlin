@@ -7,6 +7,7 @@ enum class UserErrorCode(
         override val message: String
 ): ErrorResponse {
 
-    USER_NOT_FOUND(404, "User not found")
+    USER_NOT_FOUND(404, "User not found"),
+    PASSWORD_NOT_CORRECT(401, "Password not correct")
 
 }
