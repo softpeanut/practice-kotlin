@@ -8,7 +8,7 @@ class Post(
         title: String,
         content: String,
 
-        @ManyToOne(fetch = FetchType.LAZY)
+        @ManyToOne
         @JoinColumn(name = "user_id")
         val user: User
 ) {
