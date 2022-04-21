@@ -4,12 +4,12 @@ spring:
       ddl-auto: update
     database: mysql
     open-in-view: false
-    database-platform: org.hibernate.dialect.MySQL5Dialect
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
   datasource:
-    username: ${DB_USERNAME:root}
-    password: ${DB_PASSWORD:password}
-    driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://${DB_URL:localhost}:3306/${DB_NAME:test}?useSSL=false&characterEncoding=UTF-8&serverTimezone=Asia/Seoul&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:root}
+    driver-class-name: com.mysql.cj.jdbc.Driver
   jackson:
     property-naming-strategy: SNAKE_CASE
 
@@ -20,5 +20,3 @@ server:
 jwt:
   secretKey: ${SECRET:sfadsfadsfadsf}
   accessTokenExp: ${ACCESS_EXP:1800}
-
-
