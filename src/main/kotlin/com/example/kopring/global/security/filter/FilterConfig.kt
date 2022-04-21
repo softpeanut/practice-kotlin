@@ -17,10 +17,10 @@ class FilterConfig(
     override fun configure(builder: HttpSecurity) {
         val tokenFilter = TokenFilter(jwtTokenProvider)
         val exceptionFilter = ExceptionFilter(objectMapper)
-        val webMvcFilter = WebMvcFilter()
+//        val webMvcFilter = WebMvcFilter()
 
         builder.addFilterBefore(tokenFilter, UsernamePasswordAuthenticationFilter::class.java)
         builder.addFilterBefore(exceptionFilter, TokenFilter::class.java)
-        builder.addFilterBefore(webMvcFilter, ExceptionFilter::class.java)
+//        builder.addFilterBefore(webMvcFilter, ExceptionFilter::class.java)
     }
 }
